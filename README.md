@@ -1,9 +1,12 @@
 # MovieApp
 
 ## Description
-
-Welcome to MovieMatrix, a comprehensive platform for movie enthusiasts. Please note, MovieMatrix does not offer movie streaming. We are dedicated to providing a platform for users to explore the world of cinema.
+MovieMatrix is a web application dedicated to cinema enthusiasts. It is developed using React.js for the front end and CSS for styling, providing a seamless user experience.
 
 ## Installation
+To install the application,
+clone the repository (`git@github.com:bonolo2s/MovieApp.git`),
+navigate into the cloned repository (`cd MovieMatrix`),
+install the required dependencies (`npm install`),
+and start the application (`npm start`). 
 
-Provide steps on how to install your app here.
