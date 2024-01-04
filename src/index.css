@@ -1,0 +1,31 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-color: rgb(39, 36, 36);
+  color: white;
+}
+.home{
+  padding: 50px 20px;
+  font-size: 18px;
+}
+.header{
+  background: linear-gradient(to right, rgb(69, 137, 201), rgb(201, 69, 137));
+  padding: 30px 10px;
+  display: flex;
+  justify-content: center;
+}
+.header p{
+  font-size: 20px;
+}
+.footer{
+  padding: 30px 10px;
+  background-color: rgb(76, 133, 199);
+  text-align: center;
+  font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
