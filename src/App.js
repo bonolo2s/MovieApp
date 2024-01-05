@@ -45,8 +45,8 @@ function App() {
   };
 
   useEffect(() => {
-    getMovies();
-  }, [searchValue]);
+    getMovies(searchValue);
+  }, [getMovies, searchValue]);
 
 
 
