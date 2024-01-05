@@ -19,13 +19,47 @@ body{
 .header p{
   font-size: 20px;
 }
+/*HOME STYLES*/
+.display-container{
+  display: flex;
+  align-items: center;
+  width: 1000px;
+  overflow-x: scroll;
+  margin: 10px auto;
+}
+img{
+  margin: 10px;
+  transition: 1s all ease;
+}
+img:hover{
+  transform: scale(1.1);
+}
+
+
+
 .footer{
   padding: 30px 10px;
   background-color: rgb(76, 133, 199);
   text-align: center;
   font-size: 18px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
+}
+
+@media (max-width: 600px) {
+  .display-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+}
+
+@media (min-width: 700px) {
+  .display-container{
+    width: 700px;
+  }
+}
+@media (min-width: 1000px) {
+  .display-container{
+    width: 900px;
+  }
 }

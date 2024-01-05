@@ -1,38 +1,46 @@
 import { useState, useEffect } from "react";
 
-import { FaSearch } from "react-icons/fa";
 import Footer from "../src/components/Footer";
+import Display from "./components/Display";
+import SearchInputField from "./components/SearchInputField";
 
 
 function App() {
 
   const [movies, setMovies] = useState([]);
+
   const [favMovies, setFavMovies] = useState([])
+
   const [searchValue,setSearchValue] = useState('')
 
-  const getMovies = async() =>{
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=91880bd4`
 
-    const Response = await fetch(url);
-    const jsonResponse = await Response.json();
-
-    
-
-    if(jsonResponse){
-      setMovies(jsonResponse.search)
-      console.log(jsonResponse);
+  //initial render, initial render is working
+  useEffect(() => {
+    const fetchMovie = async () => {
+      const url = "http://www.omdbapi.com/?s=fast&apikey=91880bd4";
+      const response = await fetch(url);
+      const jsonResponse = await response.json();
+      if (jsonResponse.Search) {
+        setFavMovies(jsonResponse.Search);
+        console.log(favMovies);
+      }
+    };
+  
+    fetchMovie();
+  }, []);
+  
+  //Function to cater for users request
+  const getMovies = async() => {
+    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=91880bd4`;
+    const response = await fetch(url);
+    const jsonResponse = await response.json();
+    if (jsonResponse.Search) {
+      setMovies(jsonResponse.Search);
+      console.log(setMovies)
     }
-  }
-
-  const handleInputChange = (event) => {
-    setSearchValue(event.target.value);
   };
+  
 
-  useEffect(() =>{
-    getMovies();
-  },[searchValue])
-
-  console.log()
 
   return (
       <div>
@@ -47,32 +55,24 @@ function App() {
             <br />
             <p>Enjoy exploring the world of cinema with us! 😊</p>
             <br />
-            <div style={{display:'flex'}}>
-              <label htmlFor="">
-                <input type="text"
-                placeholder="search" 
-                style={{padding:'10px',fontSize:'18px'}}
-                value={searchValue}
-                onChange={handleInputChange}/>
-              </label>
-              <div>
-                  <FaSearch style={{backgroundColor:'pink', padding:'10px',margin:'0 5px', borderRadius:'50px'}} />
-              </div>
-            </div>
+            <SearchInputField searchValue={searchValue} setSearchValue={setSearchValue} />
           </div>
         </div>
 
         <div className="home">
           <div>
-            <h1>Trending this week !</h1>
-            <div>reserved for mapping</div>
+            <h1>Favs of All Time!</h1>
+            <div>
+              <Display favMovies = {favMovies} />
+            </div>
           </div>
 
           <div>
             <h1>Search Results for :</h1>
-            <div>reserved for mapping</div>
+            <div>
+
+            </div>
           </div>
-          
           
         </div>
         <Footer/>
