@@ -26,7 +26,7 @@ function App() {
     };
   
     fetchMovie();
-  }, []);
+  }, [favMovies]);
   
   //Function to handle users request
   const getMovies = async() => {

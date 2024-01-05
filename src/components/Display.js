@@ -1,4 +1,4 @@
-import { useState} from "react";
+
 
 const Display = ({movies}) => {
     return ( 
@@ -6,7 +6,7 @@ const Display = ({movies}) => {
             <div className="display-container">
                 {movies.map((movie, index) =>
                     <div key={index} className="poster-container" >
-                        <img src={movie.Poster} alt="movie image" />
+                        <img src={movie.Poster} alt="movie" />
                     </div>
                 )}
             </div>
