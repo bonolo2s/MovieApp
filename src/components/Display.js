@@ -1,10 +1,10 @@
 import { useState} from "react";
 
-const Display = (prop) => {
+const Display = ({movies}) => {
     return ( 
         <div>
             <div className="display-container">
-                {prop.favMovies.map((movie, index) =>
+                {movies.map((movie, index) =>
                     <div key={index} className="poster-container" >
                         <img src={movie.Poster} alt="movie image" />
                     </div>

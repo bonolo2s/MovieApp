@@ -13,7 +13,6 @@ function App() {
 
   const [searchValue,setSearchValue] = useState('')
 
-
   //initial render, initial render is working
   useEffect(() => {
     const fetchMovie = async () => {
@@ -29,17 +28,26 @@ function App() {
     fetchMovie();
   }, []);
   
-  //Function to cater for users request
+  //Function to handle users request
   const getMovies = async() => {
     const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=91880bd4`;
     const response = await fetch(url);
     const jsonResponse = await response.json();
+
     if (jsonResponse.Search) {
       setMovies(jsonResponse.Search);
-      console.log(setMovies)
+      console.log(movies)
     }
   };
-  
+
+  const handleInputChange = (event) => {
+    setSearchValue(event.target.value);
+  };
+
+  useEffect(() => {
+    getMovies();
+  }, [searchValue]);
+
 
 
   return (
@@ -55,27 +63,28 @@ function App() {
             <br />
             <p>Enjoy exploring the world of cinema with us! 😊</p>
             <br />
-            <SearchInputField searchValue={searchValue} setSearchValue={setSearchValue} />
+            <SearchInputField searchValue={searchValue} setSearchValue={setSearchValue} handleInputChange = {handleInputChange} />
           </div>
         </div>
 
         <div className="home">
           <div>
             <h1>Favs of All Time!</h1>
-            <div>
-              <Display favMovies = {favMovies} />
+            <div className="moviesDisplay-container">
+              <Display movies = {favMovies} />
             </div>
           </div>
 
           <div>
-            <h1>Search Results for :</h1>
-            <div>
-
+            <h1>Search Results for :{searchValue}</h1>
+            <div className="moviesDisplay-container" >
+              {searchValue && <Display movies = {movies} />}
             </div>
           </div>
-          
         </div>
+
         <Footer/>
+
       </div>
   );
 }

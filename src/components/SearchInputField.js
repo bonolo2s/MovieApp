@@ -4,9 +4,6 @@ import { FaSearch } from "react-icons/fa";
 
 const SearchInputField = (props) => {
 
-    const handleInputChange = (event) => {
-        props.setSearchValue(event.target.value);
-      };
 
     return ( 
         <div>
@@ -17,7 +14,7 @@ const SearchInputField = (props) => {
                         placeholder="Type for a search" 
                         style={{padding:'10px',fontSize:'18px'}}
                         value={props.searchValue}
-                        onChange={handleInputChange}
+                        onChange={props.handleInputChange}
                     />
                 </label>
                 <div>

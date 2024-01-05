@@ -19,6 +19,8 @@ body{
 .header p{
   font-size: 20px;
 }
+
+
 /*HOME STYLES*/
 .display-container{
   display: flex;
@@ -34,16 +36,21 @@ img{
 img:hover{
   transform: scale(1.1);
 }
+.moviesDisplay-container{
+  margin: 50px 0;
+}
 
 
 
 .footer{
-  padding: 30px 10px;
+  padding: 20px 10px;
   background-color: rgb(76, 133, 199);
   text-align: center;
   font-size: 18px;
 }
 
+
+/*MEDIA QUERRIES*/
 @media (max-width: 600px) {
   .display-container{
     display: flex;
@@ -52,7 +59,6 @@ img:hover{
   }
   
 }
-
 @media (min-width: 700px) {
   .display-container{
     width: 700px;
@@ -61,5 +67,10 @@ img:hover{
 @media (min-width: 1000px) {
   .display-container{
     width: 900px;
+  }
+}
+@media (min-width: 1400px) {
+  .display-container{
+    width: 1300px;
   }
 }
