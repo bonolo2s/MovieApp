@@ -39,6 +39,19 @@ img:hover{
 .moviesDisplay-container{
   margin: 50px 0;
 }
+.searchBtn{
+  background-color: pink;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 50px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: 0.5s all ease;
+}
+.searchBtn:hover{
+  transform: scale(1.2);
+  background-color: rgb(18, 102, 199);
+}
 
 
 

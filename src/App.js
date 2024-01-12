@@ -21,14 +21,14 @@ function App() {
       const jsonResponse = await response.json();
       if (jsonResponse.Search) {
         setFavMovies(jsonResponse.Search);
-        console.log(favMovies);
+        //console.log(favMovies);
       }
     };
   
     fetchMovie();
   }, [favMovies]);
   
-  //Function to handle users request
+  //get movies block
   const getMovies = async() => {
     const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=91880bd4`;
     const response = await fetch(url);
@@ -36,7 +36,6 @@ function App() {
 
     if (jsonResponse.Search) {
       setMovies(jsonResponse.Search);
-      console.log(movies)
     }
   };
 
@@ -44,9 +43,15 @@ function App() {
     setSearchValue(event.target.value);
   };
 
-  useEffect(() => {
-    getMovies(searchValue);
-  }, [getMovies, searchValue]);
+  //Function to handle users request
+  const handleUserSearch = (event) => {
+    event.preventDefault(); // Prevent the form from refreshing the page
+    getMovies();
+  };
+
+  //useEffect(() => {
+   // getMovies(searchValue);
+  //}, [getMovies, searchValue]);
 
 
 
@@ -63,7 +68,7 @@ function App() {
             <br />
             <p>Enjoy exploring the world of cinema with us! 😊</p>
             <br />
-            <SearchInputField searchValue={searchValue} setSearchValue={setSearchValue} handleInputChange = {handleInputChange} />
+            <SearchInputField searchValue={searchValue} handleUserSearch={handleUserSearch} handleInputChange = {handleInputChange} />
           </div>
         </div>
 
