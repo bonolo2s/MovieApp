@@ -16,7 +16,7 @@ function App() {
   //initial render, initial render is working
   useEffect(() => {
     const fetchMovie = async () => {
-      const url = "http://www.omdbapi.com/?s=fast&apikey=91880bd4";
+      const url = "https://www.omdbapi.com/?s=fast&apikey=91880bd4";
       const response = await fetch(url);
       const jsonResponse = await response.json();
       if (jsonResponse.Search) {
@@ -30,7 +30,7 @@ function App() {
   
   //Function to handle users request
   const getMovies = async() => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=91880bd4`;
+    const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=91880bd4`;
     const response = await fetch(url);
     const jsonResponse = await response.json();
 
